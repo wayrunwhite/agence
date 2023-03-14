@@ -11,3 +11,8 @@ home:
 property.index:
     path: /biens
     controller: App\Controller\PropertyController::index
+
+property.show:
+    path: /biens/{slug}-{id}
+    requirements: {"slug": "[a-z0-9-]*"} 
+    controller: App\Controller\PropertyController::show

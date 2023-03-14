@@ -18,13 +18,27 @@ class PropertyController extends AbstractController
         $this->repository = $repository;
     }
 
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(): Response
     {
         return $this->render('property/index.html.twig',[
             'current_menu' => 'properties'
         ]);
     }
 
+    public function show(Property $property, string $slug): Response
+    {
+        if ($property->getSlug() != $slug) {
+            return $this->redirectToRoute('property.show', [
+                'id' => $property->getId(),
+                'slug' => $property->getSlug(),
+            ],301);
+        }
+        
+        return $this->render('property/show.html.twig',[
+            'property' => $property, 
+            'current_menu' => 'properties'
+        ]);
+    }
 
 }
 
