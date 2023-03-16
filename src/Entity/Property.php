@@ -12,7 +12,7 @@ use Cocur\Slugify\Slugify;
 class Property
 {
 
-    const HEAT = [0 => 'electric', 1 => 'gaz'];
+    const HEAT = [0 => 'Electrique', 1 => 'Gaz'];
 
     public function __construct()
     {
@@ -166,6 +166,11 @@ class Property
     public function getHeat(): ?int
     {
         return $this->heat;
+    }
+
+    public function getHeatType()
+    {
+        return self::HEAT[$this->heat];
     }
 
     public function setHeat(int $heat): self
