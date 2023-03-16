@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class HomeController extends AbstractController 
 {
     
+    // path: / name: "home"
     public function index(PropertyRepository $repository): Response
     {
         $properties = $repository->findLatest();

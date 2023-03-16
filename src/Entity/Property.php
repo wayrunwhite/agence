@@ -204,7 +204,14 @@ class Property
         return $this;
     }
 
+    //default get for postal code
     public function getPostal_code(): ?string
+    {
+        return $this->postal_code;
+    }
+
+    //get for the form
+    public function getPostalcode(): ?string
     {
         return $this->postal_code;
     }
@@ -228,12 +235,12 @@ class Property
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->created_at;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $created_at): self
+    public function setCreatedAt(\DateTime $created_at): self
     {
         $this->created_at = $created_at;
 

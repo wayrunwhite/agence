@@ -16,3 +16,11 @@ property.show:
     path: /biens/{slug}-{id}
     requirements: {"slug": "[a-z0-9-]*"} 
     controller: App\Controller\PropertyController::show
+
+admin.property.index:
+    path: /admin
+    controller: App\Controller\Admin\AdminPropertyController::index
+
+admin.property.edit:
+    path: /admin/{id}
+    controller: App\Controller\Admin\AdminPropertyController::edit

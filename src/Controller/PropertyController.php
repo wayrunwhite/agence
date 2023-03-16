@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Property;
 use App\Repository\PropertyRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -18,6 +17,7 @@ class PropertyController extends AbstractController
         $this->repository = $repository;
     }
 
+    // path: /biens name: "property.index"
     public function index(): Response
     {
         return $this->render('property/index.html.twig',[
@@ -25,6 +25,7 @@ class PropertyController extends AbstractController
         ]);
     }
 
+    // path: /biens/{slug}-{id} name: "property.show"
     public function show(Property $property, string $slug): Response
     {
         if ($property->getSlug() != $slug) {
